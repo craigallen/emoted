@@ -25,12 +25,12 @@ export default function NameStep() {
   return (
     <ScreenContainer>
       <ProgressDots total={4} current={0} />
-      <View style={styles.row}>
-        <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
-          {PROMPT}
-        </Text>
+      <View style={styles.speakRow}>
         <SpeakButton text={PROMPT} />
       </View>
+      <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
+        {PROMPT}
+      </Text>
       <TextInput
         value={name}
         onChangeText={setName}
@@ -51,8 +51,8 @@ export default function NameStep() {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.md, marginBottom: spacing.md },
-  question: { flex: 1, color: colors.textPrimary, fontWeight: '800' },
+  speakRow: { alignItems: 'flex-start', marginBottom: spacing.sm },
+  question: { color: colors.textPrimary, fontWeight: '800', marginBottom: spacing.md },
   input: {
     borderWidth: 2,
     borderColor: colors.border,

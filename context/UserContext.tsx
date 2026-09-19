@@ -10,7 +10,6 @@ export type Profile = {
   onboardingComplete: boolean;
   prefs: {
     largeText: boolean;
-    readAloudAutoPlay: boolean;
     reduceMotion: boolean;
   };
 };
@@ -22,7 +21,6 @@ const defaultProfile: Profile = {
   onboardingComplete: false,
   prefs: {
     largeText: false,
-    readAloudAutoPlay: true,
     reduceMotion: false,
   },
 };

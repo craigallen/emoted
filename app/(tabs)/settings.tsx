@@ -105,12 +105,6 @@ export default function Settings() {
         largeText={largeText}
       />
       <SettingSwitch
-        label="Read screens out loud automatically"
-        value={profile.prefs.readAloudAutoPlay}
-        onChange={(v) => updatePrefs({ readAloudAutoPlay: v })}
-        largeText={largeText}
-      />
-      <SettingSwitch
         label="Reduce animations"
         value={profile.prefs.reduceMotion}
         onChange={(v) => updatePrefs({ reduceMotion: v })}

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { useLocalSearchParams, useRouter, Stack } from 'expo-router';
 
@@ -10,14 +10,12 @@ import { useUser } from '@/context/UserContext';
 import { useMoodHistory } from '@/context/MoodHistoryContext';
 import { getEmotion } from '@/data/emotions';
 import { isYoungBand } from '@/utils/ageBand';
-import { useSpeech } from '@/hooks/useSpeech';
 
 export default function EmotionDetail() {
   const { id } = useLocalSearchParams();
   const router = useRouter();
   const { profile, ageBand } = useUser();
   const { addEntry } = useMoodHistory();
-  const { speak } = useSpeech();
   const [logged, setLogged] = useState(false);
   const largeText = profile.prefs.largeText;
 
@@ -38,14 +36,6 @@ export default function EmotionDetail() {
       `Things that can help: ${emotion.thingsThatHelp.join(', ')}.`,
     ].join(' ');
   }, [emotion, description]);
-
-  useEffect(() => {
-    if (emotion && profile.prefs.readAloudAutoPlay) {
-      speak(fullReadAloudText);
-    }
-    // Only re-trigger when the emotion itself changes, not on every render.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [emotion?.id]);
 
   if (!emotion) {
     return (

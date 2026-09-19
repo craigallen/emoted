@@ -16,7 +16,7 @@ const totalSteps = steps.length * rounds;
 export default function Breathing() {
   const router = useRouter();
   const { profile } = useUser();
-  const { speak, stop: stopSpeech } = useSpeech();
+  const { stop: stopSpeech } = useSpeech();
   const reduceMotion = useReduceMotion();
   const largeText = profile.prefs.largeText;
 
@@ -52,7 +52,6 @@ export default function Breathing() {
     const step = steps[index % steps.length];
     setStepIndex(index);
     setSecondsLeft(step.seconds);
-    speak(step.label);
     animateFor(step);
 
     countdownInterval.current = setInterval(() => {
