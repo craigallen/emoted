@@ -32,12 +32,12 @@ export default function FirstCheckin() {
   return (
     <ScreenContainer>
       <ProgressDots total={4} current={3} />
-      <View style={styles.row}>
-        <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
-          {PROMPT}
-        </Text>
+      <View style={styles.speakRow}>
         <SpeakButton text={PROMPT} />
       </View>
+      <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
+        {PROMPT}
+      </Text>
       <View style={styles.grid}>
         {firstCheckinChoices.map((e) => (
           <BigIconButton
@@ -57,8 +57,8 @@ export default function FirstCheckin() {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.md, marginBottom: spacing.lg },
-  question: { flex: 1, color: colors.textPrimary, fontWeight: '800' },
+  speakRow: { alignItems: 'flex-start', marginBottom: spacing.sm },
+  question: { color: colors.textPrimary, fontWeight: '800', marginBottom: spacing.lg },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, justifyContent: 'center' },
   actions: { marginTop: spacing.xl },
 });

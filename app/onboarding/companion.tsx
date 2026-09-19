@@ -35,12 +35,12 @@ export default function CompanionStep() {
   return (
     <ScreenContainer>
       <ProgressDots total={4} current={2} />
-      <View style={styles.row}>
-        <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
-          {PROMPT}
-        </Text>
+      <View style={styles.speakRow}>
         <SpeakButton text={PROMPT} />
       </View>
+      <Text accessibilityRole="header" style={[styles.question, { fontSize: getFontSize('heading', largeText) }]}>
+        {PROMPT}
+      </Text>
       <View style={styles.grid}>
         {companions.map((c) => {
           const selected = c.id === selectedId;
@@ -71,8 +71,8 @@ export default function CompanionStep() {
 }
 
 const styles = StyleSheet.create({
-  row: { flexDirection: 'row', alignItems: 'flex-start', gap: spacing.md, marginBottom: spacing.lg },
-  question: { flex: 1, color: colors.textPrimary, fontWeight: '800' },
+  speakRow: { alignItems: 'flex-start', marginBottom: spacing.sm },
+  question: { color: colors.textPrimary, fontWeight: '800', marginBottom: spacing.lg },
   grid: { flexDirection: 'row', flexWrap: 'wrap', gap: spacing.md, justifyContent: 'center' },
   card: {
     width: 130,

@@ -22,7 +22,7 @@ const defaultProfile: Profile = {
   onboardingComplete: false,
   prefs: {
     largeText: false,
-    readAloudAutoPlay: true,
+    readAloudAutoPlay: false,
     reduceMotion: false,
   },
 };

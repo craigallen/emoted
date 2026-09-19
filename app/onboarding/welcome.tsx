@@ -24,10 +24,10 @@ export default function Welcome() {
       <Text accessibilityRole="header" style={[styles.title, { fontSize: getFontSize('display', largeText) }]}>
         Welcome to Emoted
       </Text>
-      <View style={styles.row}>
-        <Text style={[styles.body, { fontSize: getFontSize('bodyLarge', largeText) }]}>{WELCOME_TEXT}</Text>
+      <View style={styles.speakRow}>
         <SpeakButton text={WELCOME_TEXT} label="Read the welcome message out loud" />
       </View>
+      <Text style={[styles.body, { fontSize: getFontSize('bodyLarge', largeText) }]}>{WELCOME_TEXT}</Text>
       <View style={styles.actions}>
         <PrimaryButton label="Let's get started" onPress={() => router.push('/onboarding/name')} />
       </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   mascot: { fontSize: 40 },
   title: { fontWeight: '800', color: colors.textPrimary, textAlign: 'center' },
-  row: { flexDirection: 'row', alignItems: 'center', gap: spacing.md },
-  body: { flex: 1, color: colors.textSecondary, textAlign: 'center', lineHeight: 28 },
+  speakRow: { alignItems: 'center' },
+  body: { color: colors.textSecondary, textAlign: 'center', lineHeight: 28 },
   actions: { width: '100%', marginTop: spacing.lg },
 });
