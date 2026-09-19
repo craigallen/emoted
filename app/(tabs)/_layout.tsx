@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { Tabs } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import { colors, minTouchTarget } from '@/constants/theme';
 import { useUser } from '@/context/UserContext';
@@ -13,6 +14,7 @@ function TabIcon({ emoji, focused }: { emoji: string; focused: boolean }) {
 export default function TabsLayout() {
   const { profile } = useUser();
   const largeText = profile.prefs.largeText;
+  const insets = useSafeAreaInsets();
 
   return (
     <Tabs
@@ -20,7 +22,11 @@ export default function TabsLayout() {
         headerShown: false,
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textSecondary,
-        tabBarStyle: { minHeight: minTouchTarget + 16, paddingBottom: 8, paddingTop: 8 },
+        tabBarStyle: {
+          minHeight: minTouchTarget + 16 + insets.bottom,
+          paddingBottom: 8 + insets.bottom,
+          paddingTop: 8,
+        },
         tabBarLabelStyle: { fontSize: getFontSize('caption', largeText), fontWeight: '700' },
       }}
     >
